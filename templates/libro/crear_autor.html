@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block title %}Crear Autor{% endblock title %}
+
+{% block body %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <label for="id_nombre">Nombre</label>
+        <input type="text" name="nombre" id="id_nombre">
+        <label for="id_apellido">Apellidos</label>
+        <input type="text" name="apellidos" id="id_apellido">
+        <label for="id_nacionalidad">Nacionalidad</label>
+        <input type="text" name="nacionalidad" id="id_nacionalidad">
+        <label for="id_descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="id_descripcion">
+
+        <button type="submit">Create</button>
+    {% endif %}
+</form>
+{% endblock body %}
+

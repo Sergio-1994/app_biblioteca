@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block title %}Listar Autor{% endblock title %}
+{% block body %}
+
+<a href="{% url 'libro:crear_autor' %}">Agregar un nuevo autor</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#Id</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Nacionalidad</th>
+                <th>Descripcion</th>
+                <th>Fecha de creación</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for autor in autores %}
+            <tr>
+                <td>{{autor.id}}</td>
+                <td>{{autor.nombre}}</td>
+                <td>{{autor.apellidos}}</td>
+                <td>{{autor.nacionalidad}}</td>
+                <td>{{autor.descripcion}}</td>
+                <td>{{autor.fecha_creacion}}</td>
+                <td><a href="{% url 'libro:editar_autor' autor.id %}">Editar</a></td>
+                <td><a href="{% url 'libro:eliminar_autor' autor.id %}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock body %}
